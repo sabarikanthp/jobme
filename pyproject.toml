@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jobme"
+version = "0.1.0"
+description = "Local job-search assistant"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "sqlmodel",
+    "pydantic>=2",
+    "pyyaml",
+    "platformdirs",
+    "keyring",
+    "httpx",
+    "beautifulsoup4",
+    "jsonschema",
+    "anthropic",
+    "openai",
+    "python-multipart>=0.0.33",
+    "python-docx>=1.2.0",
+    "pypdf>=7.0.1",
+    "openpyxl>=3.1.5",
+]
+
+[project.scripts]
+jobme = "jobme.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend/jobme"]
+dev-mode-dirs = ["backend"]
+
+[tool.pytest.ini_options]
+pythonpath = ["backend"]
+testpaths = ["tests"]
