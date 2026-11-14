@@ -1,6 +1,6 @@
 # JobMe
 
-JobMe is a local, open-source job-search app for people who are not engineers. It runs on your own computer. It finds job postings that fit what you are looking for, scores them, keeps track of every application, and prepares a tailored resume and cover letter for your best matches, using an AI provider you choose. Your data stays in a folder on your machine.
+JobMe is a local, open-source job-search app for people who are not necessarily engineers. It runs on your own computer. It finds job postings that fit what you are looking for, scores them, keeps track of every application, and prepares a tailored resume and cover letter for your best matches, using an AI provider you choose. Your data stays in a folder on your machine.
 
 ## Quick start
 
