@@ -33,6 +33,57 @@ To start it again later, run `uv run jobme start` in the same folder.
 
 **Which computer?** JobMe is built and tested on Windows. It is plain Python and a web page, so it should run on macOS and Linux too, but that has not been tested yet, and a few extras are Windows-only (the automatic-search button in Settings, and counting resume pages with Microsoft Word). For automatic searches on Mac and Linux see [docs/scheduling-mac-linux.md](docs/scheduling-mac-linux.md). Reports and fixes from other systems are welcome.
 
+## Or let an AI assistant set it up for you
+
+If you use an AI coding assistant that can run commands on your computer (such as Claude Code), you can paste the prompt below into it and it will do the Quick start for you. It asks before installing anything, and it never needs your API key: you type that into JobMe's own setup screen.
+
+````
+I want to install and run JobMe, an open-source local job-search app, on this
+computer. The project is at https://github.com/sabarikanthp/jobme
+
+Please set it up for me step by step, and tell me in one short line what you
+are doing at each step.
+
+1. Check what is installed: git, uv (https://docs.astral.sh/uv/) and Node.js LTS
+   with npm. Tell me the versions. If something is missing, tell me how you
+   would install it on my operating system and ask me before installing it.
+2. Ask me which folder to put the project in (suggest a new folder in my home
+   directory), then clone the repository there.
+3. In the project folder, run these one at a time, and stop and explain if any
+   of them fails:
+     uv sync
+     cd frontend
+     npm install
+     npm run build
+     cd ..
+4. Offer to run the tests (`uv run pytest`, about a minute). Only run them if I
+   say yes.
+5. Start JobMe with `uv run jobme start --no-browser`, keep it running in the
+   background, and wait until http://127.0.0.1:8000 answers. Then tell me to
+   open that address in my browser.
+6. Explain what happens next: a setup guide in the browser walks me through
+   choosing a folder for my files, connecting an AI, adding my resume and
+   saying what I am looking for. If I do not have an API key yet, tell me where
+   to create one with the provider I pick (Anthropic or OpenAI), but do not
+   create one for me. If I would rather use a model on my own computer, explain
+   how to install Ollama and connect it (its address is
+   http://localhost:11434/v1).
+7. Finish by telling me how to start JobMe again later (`uv run jobme start` in
+   the project folder) and how to stop it.
+
+Rules:
+- Never ask me to paste an API key, password or token into this chat. The key
+  goes only into JobMe's setup screen, which saves it in my computer's secure
+  credential store.
+- Do not open, read or upload my resume or any of my personal files. JobMe's
+  setup screen handles those.
+- Do not change JobMe's code or my system settings, and do not create
+  scheduled tasks. I can turn on automatic searches later in JobMe's Settings.
+- Ask me before installing any software.
+- If something fails, explain the cause in plain words and fix it. Do not skip
+  a step and pretend it worked.
+````
+
 ## Setup, in more detail
 
 The steps above are all you need. Details worth knowing:
